@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<h2>{{ info.meta.name }}</h2>
+<h2>{{ info.meta.lastname }}</h2>
+<p>{{ info.detail.description}} </p>
+<a href="mailto:{{ info.meta.email_href }}">{{ info.meta.email }}</a>
+
 {% for project in projects %}
 <div class="project">
     <h1>{{ project.meta.title }}</h1>

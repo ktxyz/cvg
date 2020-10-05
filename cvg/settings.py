@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'simple_auth',
     'projects',
+    'informations',
 ]
 
 MIDDLEWARE = [
