@@ -43,5 +43,8 @@
 
 <div class="projects">
     <h1>{% trans "Projects" %}</h1>
+    {% for project in projects %}
+        {% include '_project.html' %}
+    {% endfor %}
 </div>
 {% endblock content %}

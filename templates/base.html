@@ -13,24 +13,9 @@
 </head>
 <body>
     <nav>
-        {% comment %} <div class="set-lang">
-            <h2>Current LANG: {{ request.session.lang }}</h2>
-            {% if request.session.lang == "en" or request.session.lang is None %}
-                <span>en</span>
-            {% else %}
-                <a href="{% url 'set-lang' lang='en' %}?next={{ request.path|urlencode }}" class="set-lang-option">en</a>
-            {% endif %}
-
-            {% if request.session.lang == "pl" %}
-                <span>pl</span>
-            {% else %}
-                <a href="{% url 'set-lang' lang='pl' %}?next={{ request.path|urlencode }}" class="set-lang-option">pl</a>
-            {% endif %}
-        </div> {% endcomment %}
-
         <section class="nav-lang br-small">
             <div class="lang-holder">
-                {% if request.session.lang == "en" or request.session.lang is None %}
+                {% if request.session.lang == "en" %}
                     <span>EN</span>
                 {% else %}
                     <a href="{% url 'set-lang' lang='en' %}?next={{ request.path|urlencode }}" class="set-lang-option">EN</a>
@@ -46,7 +31,7 @@
             </div>
         </section>
         <section class="nav-version br-small">
-            v0.1a
+            v0.2a
         </section>
         {% if user.is_authenticated %}
             <section class="nav-admin">

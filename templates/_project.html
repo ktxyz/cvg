@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<div class="project">
+    <div class="detail">
+        <h1>
+        {{ project.meta.title }}
+        </h1>
+
+        {% if project.meta.homepage %}
+            <a class="homepage" href="{{ project.meta.homepage }}" target="_blank">{% trans "Visit homepage" %}</a>
+        {% endif %}
+        <div class="list-details">
+            <section class="langs">
+                <h4 style="margin-bottom: .5rem;">{% trans "Languages" %}</h4>
+                <div style="margin-left: -.3rem;">
+                    {% for lang in project.meta.get_langs %}
+                        <span class='br-small badge langs'>{{ lang }}</span>
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="tools">
+                <h4 style="margin-bottom: .5rem;">{% trans "Tools" %}</h4>
+                <div style="margin-left: -.3rem;">
+                    {% for tool in project.meta.get_tools %}
+                        <span class='br-small badge tools'>{{ tool }}</span>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+        <div class="desc">
+            {{ project.detail.description | safe }}
+        </div>
+    </div>
+    <div class="photo" style="background-image: url({{ project.meta.screen.url }});"></div>
+</div>
