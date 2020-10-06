@@ -1,14 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ info.meta.name }}</h2>
-<h2>{{ info.meta.lastname }}</h2>
-<p>{{ info.detail.description}} </p>
-<a href="mailto:{{ info.meta.email_href }}">{{ info.meta.email }}</a>
+<div class="information">
+    <div class="photo br-small">
+        <img class="br-small" src="{{ info.meta.profile_pic.url }}">
+    </div>
+    <div class="details">
+        <section class="name-age">
+            <h1 style="padding: 0; margin: 0;">{{ info.meta.name }} {{ info.meta.lastname}}, {{ info.meta.age }}</h1>
+        </section>
+        <section class="contact">
+            <span>phone: {{ info.meta.phone_number }}</span><br/>
+            <span>email: {{ info.meta.email_href }}</span><br/>
+            <span>github: @ktxyz</span><br/>
+        </section>
 
-{% for project in projects %}
-<div class="project">
-    <h1>{{ project.meta.title }}</h1>
-    <p>{{ project.detail.description }}</p>
+        <section class="interests">
+            <h4 style="margin-bottom: .5rem;">Interests</h4>
+            <div style="margin-left: -.3rem;">
+            {% for inter in info.detail.get_interests %}
+                <span class='br-small badge interests'>{{ inter }}</span>
+            {% endfor %}
+            </div>
+        </section>
+
+        <section class="skills">
+            <h4 style="margin-bottom: .5rem;">Skills</h4>
+            <div style="margin-left: -.3rem;">
+            {% for skill in info.detail.get_skills %}
+                <span class='br-small badge skills'>{{ skill }}</span>
+            {% endfor %}
+            </div>
+        </section>
+
+        <section class="description">
+            <h4 style="margin-bottom: 0;">About me</h4>
+            {{ info.detail.description | safe }}
+        </section>
+    </div>
 </div>
-{% endfor %}
 {% endblock content %}

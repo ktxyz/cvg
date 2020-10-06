@@ -9,7 +9,11 @@ class CVView(TemplateView):
     template_name = 'cv.html'
 
     def get_context_data(self, **kwargs):
-        lang = self.request.session['lang'] or 'en'
+        try:
+            lang = self.request.session['lang']
+        except:
+            self.request.session['lang'] = 'en'
+            lang = 'en'
         context = super().get_context_data(**kwargs)
 
         info_meta = InformationMeta.objects.all().last()

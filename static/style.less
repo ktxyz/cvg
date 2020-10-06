@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Ubuntu+Mono:wght@400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    font-size: 1.1rem;
+    font-family: 'Ubuntu Mono', monospace;
+
+    font-weight: bold;
+    height: 4rem;
+    width: 94vw;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .nav-lang {
+        padding: 0.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #efefef;
+        margin: 0 .4rem;
+
+        .lang-holder {
+            display: inline-block;
+        }
+
+        .lang-divide{
+            margin: 0 .4rem;
+            &::after {
+                content: '/';
+            }
+        }
+    }
+
+    .nav-version {
+        padding: .6rem;
+
+        background: #e7d1a8;
+        color: #000000d5;
+    }
+
+    .nav-admin {
+        margin-left: 3rem;
+    }
+}
+
+.br-small {
+    border-radius: .2rem;
+}
+
+a {
+    color: #3846c2;
+}
+
+.btn {
+    padding: .6rem 1.2rem;
+
+    background: #efefef;
+    border-radius: .1rem;
+
+    text-decoration: none;
+    color: #232323;
+}
+
+.badge {
+    margin: .3rem;
+    display: inline-block;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.05rem;
+    padding: .4rem;
+
+    background: #efefef;
+
+    &.interests {
+        background: #80da9b9a;
+    }
+
+    &.skills {
+        background: #87c0e0a1;
+    }
+}
+
+.cv {
+    padding: 1rem 0;
+    // border: 3px solid rgba(0, 0, 0, 0.61);
+    font-size: 1.1rem;
+    width: 90vw;
+    max-width: 750px;
+
+    margin: auto;
+
+    .information {
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .photo {
+            display: inline-block;
+            width: 18vw;
+            min-width: 200px;
+            max-width: 250px;
+            img {
+                width: 100%;
+            }
+        }
+
+        .details {
+            padding-top: 0;
+            padding-left: 1rem;
+            width: 36vw;
+            min-width: 400px;
+            max-width: 500px;
+
+            height: 18vw;
+            min-height: 200px;
+
+            .name-age {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

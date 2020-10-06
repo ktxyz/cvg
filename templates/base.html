@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Kamil Tokarski - CV</title>
+
+    {% load static %}
+    <link rel="stylesheet/less" type="text/css" href="{% static 'style.less' %}" />
+
+    <script src="//cdn.jsdelivr.net/npm/less"></script>
 </head>
 <body>
     <nav>
-        <div class="set-lang">
+        {% comment %} <div class="set-lang">
             <h2>Current LANG: {{ request.session.lang }}</h2>
             {% if request.session.lang == "en" or request.session.lang is None %}
                 <span>en</span>
@@ -21,10 +26,37 @@
             {% else %}
                 <a href="{% url 'set-lang' lang='pl' %}?next={{ request.path|urlencode }}" class="set-lang-option">pl</a>
             {% endif %}
-        </div>
+        </div> {% endcomment %}
+
+        <section class="nav-lang br-small">
+            <div class="lang-holder">
+                {% if request.session.lang == "en" or request.session.lang is None %}
+                    <span>EN</span>
+                {% else %}
+                    <a href="{% url 'set-lang' lang='en' %}?next={{ request.path|urlencode }}" class="set-lang-option">EN</a>
+                {% endif %}
+            </div>
+            <span class="lang-divide"></span>
+            <div class="lang-holder">
+                {% if request.session.lang == "pl" %}
+                    <span>PL</span>
+                {% else %}
+                    <a href="{% url 'set-lang' lang='pl' %}?next={{ request.path|urlencode }}" class="set-lang-option">PL</a>
+                {% endif %}
+            </div>
+        </section>
+        <section class="nav-version br-small">
+            v0.1a
+        </section>
+        {% if user.is_authenticated %}
+            <section class="nav-admin">
+                <a class="btn btn-primary" href="/admin_panel" target="_blank">{{ request.user.username }}</a>
+            </section>
+        {% endif %}
     </nav>
-    <h1>{{ request.user }}</h1>
-    {% block content %}
-    {% endblock content %}
+    <div class="cv">
+        {% block content %}
+        {% endblock content %}
+    </div>
 </body>
 </html>
