@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<div class="job" style="margin: 1.3rem 0;">
+    <h2 style="margin: 0;">{{ job.meta.company_name }} - <span class="job-title br-small">{{ job.detail.role }}</span></h2>
+    <h3 style="margin: 0;">{% trans "From" %} {{ job.meta.since }} {% trans "to" %} {{ job.meta.until }}</h3>
+
+    <section class="techs" style="margin-top: 0;">
+        <h4 style="margin: 0; margin-bottom: .1rem;">{% trans "Tech stack" %}</h4>
+        <div style="margin-left: -.3rem;">
+        {% for tech in job.detail.get_tech %}
+            <span class='br-small badge tech_stack'>{{ tech }}</span>
+        {% endfor %}
+        </div>
+    </section>
+
+    {{ job.detail.description | safe}}
+</div>

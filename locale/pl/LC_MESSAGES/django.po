@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-06 16:39+0200\n"
+"POT-Creation-Date: 2020-10-06 17:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: templates/_job.html:5
+msgid "From"
+msgstr "Od"
+
+#: templates/_job.html:5
+msgid "to"
+msgstr "do"
+
+#: templates/_job.html:8
+msgid "Tech stack"
+msgstr "Technologie"
 
 #: templates/_project.html:10
 msgid "Visit homepage"
@@ -44,18 +56,30 @@ msgstr "email"
 msgid "github"
 msgstr "github"
 
-#: templates/cv.html:20
+#: templates/cv.html:17
+msgid "website"
+msgstr "strona"
+
+#: templates/cv.html:21
 msgid "Interests"
 msgstr "Zainteresowania"
 
-#: templates/cv.html:29
+#: templates/cv.html:30
 msgid "Skills"
 msgstr "Umiejętności"
 
-#: templates/cv.html:38
+#: templates/cv.html:39
 msgid "About me"
 msgstr "O mnie"
 
-#: templates/cv.html:45
+#: templates/cv.html:46
+msgid "Work experience"
+msgstr "Doświadczenie"
+
+#: templates/cv.html:53
 msgid "Projects"
 msgstr "Projekty"
+
+#: templates/cv.html:59
+msgid "And others. Some on their way"
+msgstr "I parę innych. Niektóre w drodze"

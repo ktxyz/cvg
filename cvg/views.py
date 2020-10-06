@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 
 from projects.models import ProjectMeta, ProjectDetail
 from informations.models import InformationMeta, InformationDetail
-
+from jobs.models import JobMeta, JobDetail
 
 class CVView(TemplateView):
     template_name = 'cv.html'
@@ -26,6 +26,15 @@ class CVView(TemplateView):
             'detail': get_object_or_404(InformationDetail, meta=info_meta, trans_lang=lang)
         }
         context['info'] = info
+
+        jobs = []
+        metas = JobMeta.objects.all()
+        for job in metas:
+            jobs.append({
+                'meta': job,
+                'detail': get_object_or_404(JobDetail, job=job, trans_lang=lang)
+            })
+        context['jobs'] = jobs
 
         projects = []
         metas = ProjectMeta.objects.all()
