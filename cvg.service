@@ -1,0 +1,14 @@
+[Unit]
+Description=CVG Deploy Service
+After=network.target
+
+[Service]
+Type=simple
+User=kamol
+WorkingDirectory=/home/kamol/cvg
+ExecStart=bash serve.sh
+StandardOutput=file:/var/log/cvg/cvg.access
+StandardError=file:/var/log/cvg/cvg.error
+
+[Install]
+WantedBy=multi-user.target

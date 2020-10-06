@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cv.tokarski.xyz']
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # Application definition
 
@@ -142,10 +142,7 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    BASE_DIR / 'static',
-)
+STATIC_ROOT = BASE_DIR / 'static';
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'assets'

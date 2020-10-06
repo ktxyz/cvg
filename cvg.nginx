@@ -1,0 +1,44 @@
+upstream app {
+	server 127.0.0.1:9001;
+}
+
+server {
+	server_name cv.tokarski.xyz;
+
+	location = /favicon.ico { access_log off; log_not_found off; }
+	location /static/ {
+		alias /home/kamol/cvg/static/;
+	}
+
+	location /media/ {
+		alias /home/kamol/cvg/assets/;
+	}
+
+	location / {
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_redirect off;
+      proxy_pass   http://app;
+	}
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/cv.tokarski.xyz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/cv.tokarski.xyz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+
+server {
+    if ($host = cv.tokarski.xyz) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+	listen 80;
+	server_name cv.tokarski.xyz;
+    return 404; # managed by Certbot
+
+
+}
