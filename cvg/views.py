@@ -14,6 +14,10 @@ class CVView(TemplateView):
         except:
             self.request.session['lang'] = 'en'
             lang = 'en'
+        
+        from django.utils import translation
+        translation.activate(lang)
+        
         context = super().get_context_data(**kwargs)
 
         info_meta = InformationMeta.objects.all().last()
